@@ -14,6 +14,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Сервисный класс, реализурующий паттерн проектирования Singleton
+ * Выполняет операцию преобразования csv-файла в список объектов Person
+ */
 public class CSVToList {
 
     public static final CSVToList CSV_PARSER = new CSVToList();
@@ -21,6 +25,12 @@ public class CSVToList {
     private CSVToList() {
     }
 
+    /**
+     * Метод, преобразующий csv-файл в список объектов Person
+     * @param CSVFilePath путь к используемому csv-файлу
+     * @param separator разделитель
+     * @return список объектов Person
+     */
     public List<Person> toPersonList(String CSVFilePath, char separator) {
         List<Person> personList = new ArrayList<>();
         CSVParser parser = new CSVParserBuilder().withSeparator(separator).build();
